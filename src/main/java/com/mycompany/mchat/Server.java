@@ -26,16 +26,6 @@ public class Server implements ReceivedInterface, IConnectionChange {
     List<IServerHandler> clientHanders = new ArrayList();
 
     public static void main(String[] args) {
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                String host = "localhost";
-//                int port = 8887;
-//                org.java_websocket.server.WebSocketServer server = new SimpleServer(new InetSocketAddress(host, port),);
-//                server.run();
-//            }
-//        }).start();
-
         new Server().runServer();
 
     }
@@ -57,14 +47,6 @@ public class Server implements ReceivedInterface, IConnectionChange {
                 new Thread(serverHandler).start();
             }
 
-//            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-//            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-//
-//            String newLine;
-//            while ((newLine = in.readLine()) != null) {
-//                System.out.println(newLine);
-//                out.println("Echo:" + newLine);
-//            }
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -77,7 +59,6 @@ public class Server implements ReceivedInterface, IConnectionChange {
                 s.sendLine(serverHandler.getId() + " : " + newLine);
             }
         });
-
     }
 
     @Override

@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Martin
  */
-public class ServerHandler implements Runnable,IServerHandler {
+public class ServerHandler implements Runnable, IServerHandler {
 
   
 
@@ -35,9 +35,7 @@ public class ServerHandler implements Runnable,IServerHandler {
     
     @Override
     public void sendLine(String newLine){
-//    synchronized (out){
         out.println(newLine); 
-//    }
     }
     
     @Override
@@ -51,7 +49,6 @@ public class ServerHandler implements Runnable,IServerHandler {
             String newLine;
             while ((newLine = in.readLine()) != null) {
                 System.out.println(newLine);
-//                out.println("Echo:" + newLine);
                 if(recvInterface != null){
                     recvInterface.onReceived(newLine, this);
                 }

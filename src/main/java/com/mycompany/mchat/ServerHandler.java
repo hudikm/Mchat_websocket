@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Martin
  */
-public class ServerHandler implements Runnable, IServerHandler {
+public class ServerHandler implements Runnable,IServerHandler {
 
   
 

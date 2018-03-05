@@ -33,11 +33,7 @@ public class Server implements ReceivedInterface, IConnectionChange {
     public void runServer() {
        
         try {
-
-            String host = "localhost";
-            int port = 8887;
-            SimpleServer.factory(new InetSocketAddress(host, port), this, this).start();
-
+           
             logger.log(Level.INFO, "Start server");
             ServerSocket serverSocket = new ServerSocket(portNumber);
             for (;;) {
@@ -52,28 +48,5 @@ public class Server implements ReceivedInterface, IConnectionChange {
         }
     }
 
-    @Override
-    public void onReceived(String newLine, IServerHandler serverHandler) {
-        clientHanders.forEach(s -> {
-            if (!s.equals(serverHandler)) {
-                s.sendLine(serverHandler.getId() + " : " + newLine);
-            }
-        });
-    }
-
-    @Override
-    public void newConnection(IServerHandler iServerHandler) {
-        clientHanders.add(iServerHandler);
-           }
-
-    @Override
-    public void clossedConnection(IServerHandler iServerHandler) {
-        clientHanders.remove(iServerHandler);
-    }
-
-    @Override
-    public int getIndex() {
-        return id;
-    }
-
+ 
 }

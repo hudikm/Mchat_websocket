@@ -18,34 +18,7 @@
             <artifactId>Java-WebSocket</artifactId>
             <version>1.3.7</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server -->
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>9.4.8.v20171121</version>
-            
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-maven-plugin</artifactId>
-            <version>9.4.8.v20171121</version>
-        </dependency>
+      
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.4.8.v20171121</version>
-                <configuration>
-                    <modules>
-                        <module>
-                            websocket   
-                        </module>
-                    </modules>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+
 </project>
